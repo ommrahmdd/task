@@ -1,13 +1,14 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { useFormContext, useWatch } from "react-hook-form";
 
 export default function DebounceQuantityControl({
   name,
   initialValue,
+  disabled,
 }: {
   name: string;
   initialValue: number;
+  disabled?: boolean;
 }) {
   const methods = useFormContext();
 
@@ -18,8 +19,6 @@ export default function DebounceQuantityControl({
 
   const quantity =
     typeof currentValue === "number" ? currentValue : initialValue;
-
-  console.log("dddd", currentValue);
 
   const handleIncrement = () => {
     methods.setValue(name, quantity + 1, {
@@ -38,28 +37,41 @@ export default function DebounceQuantityControl({
   };
 
   return (
-    <div className="flex items-center gap-2">
-      {/* Explicit type="button" stops form submission crashes */}
-      <Button
-        type="button"
-        variant="outline"
-        onClick={handleDecrement}
-        disabled={quantity <= 1}
-      >
-        -
-      </Button>
+    <div className="flex items-center gap-[10px]" key={name}>
+      <ButtonController
+        content={"-"}
+        disabled={disabled}
+        handler={handleDecrement}
+      />
 
-      <div className="w-20">
-        <Input
-          type="number"
-          {...methods.register(name, { valueAsNumber: true })}
-          className="text-center"
-        />
-      </div>
+      <p className="font-medium text-base !mb-0">{quantity}</p>
 
-      <Button type="button" variant="outline" onClick={handleIncrement}>
-        +
-      </Button>
+      <ButtonController
+        content={"+"}
+        disabled={disabled}
+        handler={handleIncrement}
+      />
     </div>
   );
 }
+
+const ButtonController = ({
+  handler,
+  disabled,
+  content,
+}: {
+  handler: () => void;
+  disabled?: boolean;
+  content: string;
+}) => (
+  <Button
+    type="button"
+    variant="outline"
+    onClick={handler}
+    disabled={disabled}
+    size="sm"
+    className="bg-[#F0F4F7] border-none text-[#525963] text-sm"
+  >
+    {content}
+  </Button>
+);

@@ -15,7 +15,7 @@ export function BoxInput({
     <div
       className={classNames(
         "border rounded px-3 py-.5 cursor-pointer",
-        selected && "border-2 border-[#0AA288]",
+        selected && "border border-[#0AA288]",
         className,
       )}
       onClick={() => onClick?.()}

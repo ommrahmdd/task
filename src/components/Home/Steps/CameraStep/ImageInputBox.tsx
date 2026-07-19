@@ -13,7 +13,10 @@ export function ImageInput({
 }) {
   return (
     <div
-      className="flex flex-col justify-center items-center gap-1 cursor-pointer"
+      className={classNames(
+        "flex justify-center items-center gap-[2px] rounded cursor-pointer border py-[1px] px-2",
+        selected && "border-[#0AA288]",
+      )}
       role="button"
       onClick={() => onClick?.()}
       data-testid="store-image-input"
@@ -21,12 +24,11 @@ export function ImageInput({
       <img
         src={src}
         className={classNames(
-          "h-[50px] w-[50px] rounded-xl object-fill p-[3px]",
-          selected && "border-2 border-[#0AA288]",
+          "h-[28px] w-[28px] rounded-xl object-contain p-[3px]",
         )}
       />
 
-      {text && <p>{text}</p>}
+      {text && <p className="!m-0 text-xs">{text}</p>}
     </div>
   );
 }

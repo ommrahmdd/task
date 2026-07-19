@@ -3,8 +3,8 @@ import { ImageInput } from "./ImageInputBox";
 import { BoxInput } from "./BoxInput";
 import { useMemo } from "react";
 import DebounceQuantityControl from "./DebounceQuantityControl";
+import Pirce from "./Pirce";
 
-// Added variants type safety definition matching your data payload structure
 interface VariantDetail {
   id: string;
   name: string;
@@ -69,11 +69,12 @@ export default function WithVariantsForm({
     );
 
     const selectedValueIds = allowedAttributeNames
-      .map((name) => currentProduct.selectedAttributes[name])
-      .filter(Boolean); // removes undefined/null values
+      .map((name: string) => currentProduct.selectedAttributes[name])
+      .filter(Boolean) as string[];
 
     const isLengthMatched =
       selectedValueIds.length === allowedAttributeNames.length;
+
     if (!isLengthMatched) return null;
 
     return variants?.find((variant) => {
@@ -81,12 +82,22 @@ export default function WithVariantsForm({
         variant.variantDetail?.some((detail) => detail.id === selectedId),
       );
     });
-  }, [currentProduct, variants]);
+  }, [
+    currentProduct?.selectedAttributes,
+    currentProduct?.attributes,
+    variants,
+  ]);
 
-  console.log("xxx", matchedProduct?.price, matchedProduct);
+  const quantityName = matchedProduct
+    ? `products.[${productIndex}].selectedVariantsQuantity.${matchedProduct.id}`
+    : `products.[${productIndex}].quantity`;
+
+  const currentVariantQuantity = matchedProduct
+    ? currentProduct?.selectedVariantsQuantity?.[matchedProduct.id] || 0
+    : 0;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 flex-1 flex flex-col justify-between">
       {/* ---------------------------------------------- Variants */}
       <div className="space-y-4 max-h-[200px] overflow-auto">
         {currentProduct?.attributes?.map((field: any) => {
@@ -94,7 +105,7 @@ export default function WithVariantsForm({
             currentProduct?.selectedAttributes?.[field.name];
 
           return (
-            <div key={field?.id} className="space-y-1.5">
+            <div key={field?.name} className="space-y-1.5">
               <p className="text-sm font-medium text-slate-700 !mb-1">
                 {field?.name}
               </p>
@@ -129,29 +140,23 @@ export default function WithVariantsForm({
       </div>
 
       {/* Price and quantity */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between mt-auto">
         <div>
           <DebounceQuantityControl
-            name={`products.[${productIndex}].selectedAttributes.quantity`}
-            initialValue={matchedProduct?.quantity || 0}
+            name={quantityName}
+            initialValue={0}
+            disabled={!matchedProduct}
           />
         </div>
 
         <div>
-          {matchedProduct && !!currentProduct?.selectedAttributes?.quantity ? (
-            <div className="flex flex-col gap-y-1">
-              <span className="text-base font-normal text-[#575757]">
-                $
-                {(
-                  matchedProduct.priceConverted *
-                  currentProduct?.selectedAttributes?.quantity
-                )?.toFixed(2)}
-              </span>
-
-              <span className="text-xs text-slate-400">
-                ({matchedProduct.stock} items left)
-              </span>
-            </div>
+          {matchedProduct && !!currentVariantQuantity ? (
+            <Pirce
+              price={matchedProduct.price}
+              quantity={currentVariantQuantity}
+              discount={currentProduct?.discount}
+              stock={matchedProduct.stock}
+            />
           ) : (
             <span className="text-base font-normal text-[#575757]">
               $ 00.00
