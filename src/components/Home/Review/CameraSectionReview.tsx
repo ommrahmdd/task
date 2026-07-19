@@ -1,14 +1,22 @@
-import { formRef } from "../Steps/CameraStep/CamerasStep";
-import { useWatch } from "react-hook-form";
+import { useCameraInfo } from "@/hooks/useCameraInfo";
+import ProductBox from "./ProductBox";
 
 export default function CameraSectionReview() {
-  const methods = formRef.current;
-  const watechProducts = useWatch({
-    name: "products",
-    control: methods?.control,
-  });
+  const { selectedProducts } = useCameraInfo();
 
-  console.log("ffff", watechProducts);
+  console.log("dddddddddddddddd", selectedProducts);
 
-  return <div>CameraSectionReview</div>;
+  return (
+    <div>
+      <p className="uppercase font-normal text-[#A8B2BD] text-[12px]">
+        Cameras
+      </p>
+
+      <div className="space-y-2">
+        {selectedProducts?.map((p) => (
+          <ProductBox key={p.id} product={p} />
+        ))}
+      </div>
+    </div>
+  );
 }

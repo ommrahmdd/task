@@ -12,40 +12,45 @@ import CameraIcon from "@/assets/icons/CameraIcon";
 import ProtectionIcon from "@/assets/icons/ProtectionIcon";
 import SensorIcon from "@/assets/icons/SensorIcon";
 import ExtraProtectionIcon from "@/assets/icons/ExtraProtectionIcon";
+import type { Product } from "../Layout";
+import { useCameraInfo } from "@/hooks/useCameraInfo";
+import { Badge } from "@/components/ui/badge";
 
-export default function Steps() {
+export default function Steps({ products }: { products: Product[] }) {
   const steps = [
     {
       title: "Choose your cameras",
       titleIcon: <CameraIcon />,
-      children: <CamerasStep />,
+      children: <CamerasStep products={products} />,
       actions: "2 Selected",
       value: 1,
     },
     {
       title: "Choose your plan",
       titleIcon: <ProtectionIcon />,
-      children: <CamerasStep />,
+      children: <CamerasStep products={products} />,
       actions: "2 Selected",
       value: 2,
     },
     {
       title: "Choose your sensors",
       titleIcon: <SensorIcon />,
-      children: <CamerasStep />,
+      children: <CamerasStep products={products} />,
       actions: "2 Selected",
       value: 3,
     },
     {
       title: "Add extra protection",
       titleIcon: <ExtraProtectionIcon />,
-      children: <CamerasStep />,
+      children: <CamerasStep products={products} />,
       actions: "2 Selected",
       value: 4,
     },
   ];
 
   const [activeItem, setActiveItem] = useState<number[]>([steps?.[0]?.value]);
+
+  const { selectedProducts } = useCameraInfo();
 
   return (
     <section className="space-y-1">
@@ -71,12 +76,18 @@ export default function Steps() {
               activeItem?.[0] !== step.value && "border-b-[.5px]",
             )}
           >
-            <AccordionTrigger className="mx-[15px] flex items-center justify-between py-[22.5px]">
+            <AccordionTrigger className="mx-[15px] flex items-center justify-between gap-x-4 py-[22.5px] ">
               <div className="flex items-center gap-2">
                 {step?.titleIcon}
 
                 <h4 className="font-semibold text-[22px]">{step?.title}</h4>
               </div>
+
+              {step?.value === 1 && (
+                <p className="text-[#4E2FD2] font-medium text-sm">
+                  {selectedProducts?.length} selected
+                </p>
+              )}
             </AccordionTrigger>
 
             <AccordionContent className="mx-[15px]">

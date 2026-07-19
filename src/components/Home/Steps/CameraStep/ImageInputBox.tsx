@@ -15,7 +15,7 @@ export function ImageInput({
     <div
       className={classNames(
         "flex justify-center items-center gap-[2px] rounded cursor-pointer border py-[1px] px-2",
-        selected && "border-[#0AA288]",
+        selected ? "border-[#0AA288]" : "border-[#CCCCCC] ",
       )}
       role="button"
       onClick={() => onClick?.()}

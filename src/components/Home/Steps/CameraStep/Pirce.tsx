@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Pirce({
   price,
   discount,
@@ -13,7 +11,7 @@ export default function Pirce({
 }) {
   return (
     <div className="flex flex-col text-right">
-      {discount && (
+      {!!discount && (
         <span className="text-base font-normal text-[#D8392B] line-through">
           ${(price * quantity).toFixed(2)}
         </span>

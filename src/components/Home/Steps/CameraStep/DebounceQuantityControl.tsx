@@ -28,7 +28,7 @@ export default function DebounceQuantityControl({
   };
 
   const handleDecrement = () => {
-    if (quantity > 1) {
+    if (quantity > 0) {
       methods.setValue(name, quantity - 1, {
         shouldValidate: true,
         shouldDirty: true,

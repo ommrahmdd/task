@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { useCameraInfo } from "@/hooks/useCameraInfo";
 import classNames from "classnames";
 import React from "react";
 
@@ -14,19 +15,27 @@ export default function ProductBoxLayout({
     discount: number;
     title: string;
     description: string;
+    id: string;
   };
 }) {
+  const { selectedProducts } = useCameraInfo();
+
+  const productSelected = (productId: string) => {
+    return selectedProducts?.some((s) => s.id === productId);
+  };
+
   return (
     <div
       className={classNames(
         "p-2.75 rounded-xl grid grid-cols-1 bg-white md:grid-cols-1 xl:grid-cols-3",
+        productSelected(product?.id) && "border-2 border-[#4E2FD2B2]",
         className,
       )}
     >
       <div className="p-4 relative self-start">
         <img
           src={product?.image}
-          className="w-full h-[137px] object-contain mx-auto sm:w-[101px]"
+          className="w-full h-[150px] object-contain mx-auto md:h-[137px] md:w-[101px]"
         />
 
         {!!product?.discount && (
@@ -36,7 +45,7 @@ export default function ProductBoxLayout({
         )}
       </div>
 
-      <div className="col-span-2 flex flex-col gap-y-2">
+      <div className="col-span-2 flex flex-col gap-y-[10px]">
         <div className="space-y-2">
           <h4 className="font-semibold text-base">{product.title}</h4>
           <p className="text-sm font-medium text-[#1F1F1FBF]">
