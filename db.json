@@ -1,0 +1,402 @@
+{
+  "items": [
+    {
+      "title": "Wyze Cam v4",
+      "price": null,
+      "stock": null,
+      "quantity": null,
+      "discount": null,
+      "image": "https://i.postimg.cc/66Pnbxyt/7377c4c026acb3c476e41ccec1e0376490ee2cb9.png",
+      "description": "The clearest Wyze Cam ever made.",
+      "attributes": [
+        {
+          "name": "Color",
+          "type": "COLOR",
+          "values": [
+            {
+              "id": "5d03e268-015f-42d2-8493-64e1d94f6abf",
+              "name": "Red",
+              "image": "https://i.postimg.cc/66Pnbxyt/7377c4c026acb3c476e41ccec1e0376490ee2cb9.png"
+            },
+            {
+              "id": "317bd7fc-86b6-48e8-8639-0936400066d8",
+              "name": "Pink",
+              "image": "https://i.postimg.cc/R0Gncjkq/2989bafdebb392f5c271645b0aa3977ff131a2f7.png"
+            }
+          ]
+        },
+        {
+          "name": "Size",
+          "type": "STRING",
+          "values": [
+            {
+              "id": "d98cb664-60ac-4045-8617-14633fbd9882",
+              "name": "M",
+              "image": null
+            },
+            {
+              "id": "d9dd8dda-75b7-49d9-8ecd-ebf6b562d4c5",
+              "name": "XXL",
+              "image": null
+            }
+          ]
+        },
+        {
+          "name": "Gender",
+          "type": "STRING",
+          "values": [
+            {
+              "id": "4e8198db-734e-4cfe-9018-3ae74a58bc83",
+              "name": "Unisex",
+              "image": null
+            },
+            {
+              "id": "f888c8ec-6254-4f0d-a3b2-16cff16937c1",
+              "name": "Kids",
+              "image": null
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "1f2604c3-1fc0-4534-b3f4-fdda245a3a61",
+          "price": 4334,
+          "stock": 2323,
+          "quantity": 0,
+          "variantDetail": [
+            {
+              "id": "5d03e268-015f-42d2-8493-64e1d94f6abf",
+              "name": "Red"
+            },
+            {
+              "id": "d9dd8dda-75b7-49d9-8ecd-ebf6b562d4c5",
+              "name": "XXL"
+            },
+            {
+              "id": "4e8198db-734e-4cfe-9018-3ae74a58bc83",
+              "name": "Unisex"
+            }
+          ],
+          "priceConverted": 1155.8778
+        },
+        {
+          "id": "dbb6bed3-5d8e-431f-b03c-7225598a7966",
+          "price": 344,
+          "stock": 434,
+          "quantity": 0,
+          "variantDetail": [
+            {
+              "id": "5d03e268-015f-42d2-8493-64e1d94f6abf",
+              "name": "Red"
+            },
+            {
+              "id": "d9dd8dda-75b7-49d9-8ecd-ebf6b562d4c5",
+              "name": "XXL"
+            },
+            {
+              "id": "f888c8ec-6254-4f0d-a3b2-16cff16937c1",
+              "name": "Kids"
+            }
+          ],
+          "priceConverted": 91.7448
+        },
+        {
+          "id": "3be499d9-63f9-4346-86f2-ec4d3a15685e",
+          "price": 340,
+          "stock": 3434,
+          "quantity": 0,
+          "variantDetail": [
+            {
+              "id": "317bd7fc-86b6-48e8-8639-0936400066d8",
+              "name": "Pink"
+            },
+            {
+              "id": "d98cb664-60ac-4045-8617-14633fbd9882",
+              "name": "M"
+            },
+            {
+              "id": "4e8198db-734e-4cfe-9018-3ae74a58bc83",
+              "name": "Unisex"
+            }
+          ],
+          "priceConverted": 90.678
+        },
+        {
+          "id": "5b78144c-71ac-4dd3-8156-3706fde72c55",
+          "price": 434,
+          "stock": 3434,
+          "quantity": 0,
+
+          "variantDetail": [
+            {
+              "id": "317bd7fc-86b6-48e8-8639-0936400066d8",
+              "name": "Pink"
+            },
+            {
+              "id": "d98cb664-60ac-4045-8617-14633fbd9882",
+              "name": "M"
+            },
+            {
+              "id": "f888c8ec-6254-4f0d-a3b2-16cff16937c1",
+              "name": "Kids"
+            }
+          ],
+          "priceConverted": 115.7478
+        },
+        {
+          "id": "5a2c2b1a-1f56-4222-bdbf-b5743a543533",
+          "price": 3434,
+          "stock": 343434,
+          "quantity": 0,
+          "variantDetail": [
+            {
+              "id": "317bd7fc-86b6-48e8-8639-0936400066d8",
+              "name": "Pink"
+            },
+            {
+              "id": "d9dd8dda-75b7-49d9-8ecd-ebf6b562d4c5",
+              "name": "XXL"
+            },
+            {
+              "id": "f888c8ec-6254-4f0d-a3b2-16cff16937c1",
+              "name": "Kids"
+            }
+          ],
+          "priceConverted": 915.8478
+        },
+        {
+          "id": "9495f1a0-024d-4c1a-aea3-0d81f6ed9001",
+          "price": 4334,
+          "stock": 47,
+          "quantity": 0,
+          "variantDetail": [
+            {
+              "id": "5d03e268-015f-42d2-8493-64e1d94f6abf",
+              "name": "Red"
+            },
+            {
+              "id": "d98cb664-60ac-4045-8617-14633fbd9882",
+              "name": "M"
+            },
+            {
+              "id": "4e8198db-734e-4cfe-9018-3ae74a58bc83",
+              "name": "Unisex"
+            }
+          ],
+          "priceConverted": 1155.8778
+        },
+        {
+          "id": "3b18a378-f8b7-4b74-b8d1-4bb90c1fcca7",
+          "price": 34,
+          "stock": 2318,
+          "quantity": 0,
+
+          "variantDetail": [
+            {
+              "id": "5d03e268-015f-42d2-8493-64e1d94f6abf",
+              "name": "Red"
+            },
+            {
+              "id": "d98cb664-60ac-4045-8617-14633fbd9882",
+              "name": "M"
+            },
+            {
+              "id": "f888c8ec-6254-4f0d-a3b2-16cff16937c1",
+              "name": "Kids"
+            }
+          ],
+          "priceConverted": 9.0678
+        },
+        {
+          "id": "abe70977-aa75-4024-a8d3-594fd8e2dcb8",
+          "price": 4343,
+          "stock": 34331,
+          "quantity": 0,
+
+          "variantDetail": [
+            {
+              "id": "317bd7fc-86b6-48e8-8639-0936400066d8",
+              "name": "Pink"
+            },
+            {
+              "id": "d9dd8dda-75b7-49d9-8ecd-ebf6b562d4c5",
+              "name": "XXL"
+            },
+            {
+              "id": "4e8198db-734e-4cfe-9018-3ae74a58bc83",
+              "name": "Unisex"
+            }
+          ],
+          "priceConverted": 1158.2781
+        }
+      ]
+    },
+
+    {
+      "title": "Wyze Cam Pan v3",
+      "price": null,
+      "stock": null,
+      "image": "https://i.postimg.cc/k4zNb0SS/6e1650a4902c8e51d612c6363434bb36c8d74688.png",
+      "discount": 4,
+      "description": "360° pan and 180° tilt security camera.",
+      "attributes": [
+        {
+          "name": "Color",
+          "type": "COLOR",
+          "values": [
+            {
+              "id": "9936e6c8-4fe0-409a-ba33-0a13b52e5f14",
+              "name": "White",
+              "image": "https://i.postimg.cc/k4zNb0SS/6e1650a4902c8e51d612c6363434bb36c8d74688.png"
+            },
+            {
+              "id": "0eb519a4-9efd-44f0-ac09-9e20e82eb102",
+              "name": "Grey",
+              "image": "https://i.postimg.cc/CK6k33mt/a0088c61da6ff66f06d71bdbe9496a53344f2c0e.png"
+            },
+            {
+              "id": "6b88c62a-1bdb-4d28-a59f-c399a5f2c9b3",
+              "name": "Black",
+              "image": "https://i.postimg.cc/cHngVrKg/9635a12db624c130033a4166489f19d4dd442883.png"
+            }
+          ]
+        },
+        {
+          "name": "Size",
+          "type": "STRING",
+          "values": [
+            {
+              "id": "e2119661-0519-4542-b7cd-da4e96e18983",
+              "name": "M",
+              "image": null
+            },
+            {
+              "id": "602ec28b-566e-4c30-a7d4-5e9cef19ed27",
+              "name": "L",
+              "image": null
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "f88b8d0a-abdb-4b13-aa50-2e3af3bce7df",
+          "price": 500,
+          "stock": 30,
+          "quantity": 0,
+
+          "variantDetail": [
+            {
+              "id": "6b88c62a-1bdb-4d28-a59f-c399a5f2c9b3",
+              "name": "Yellow"
+            },
+            {
+              "id": "e2119661-0519-4542-b7cd-da4e96e18983",
+              "name": "M"
+            }
+          ],
+          "priceConverted": 133.35
+        },
+        {
+          "id": "8d9ae082-cb8d-4d18-b8be-53614d8eead1",
+          "price": 450,
+          "stock": 26,
+          "quantity": 0,
+          "variantDetail": [
+            {
+              "id": "9936e6c8-4fe0-409a-ba33-0a13b52e5f14",
+              "name": "Gray"
+            },
+            {
+              "id": "e2119661-0519-4542-b7cd-da4e96e18983",
+              "name": "M"
+            }
+          ],
+          "priceConverted": 120.015
+        },
+        {
+          "id": "91c2cab2-466f-443d-a2fd-1d7bd301d4b6",
+          "price": 600,
+          "stock": 28,
+          "quantity": 0,
+
+          "variantDetail": [
+            {
+              "id": "0eb519a4-9efd-44f0-ac09-9e20e82eb102",
+              "name": "Blue"
+            },
+            {
+              "id": "602ec28b-566e-4c30-a7d4-5e9cef19ed27",
+              "name": "L"
+            }
+          ],
+          "priceConverted": 160.02
+        },
+        {
+          "id": "c3624665-7667-4225-be05-0b2be4e234dc",
+          "price": 600,
+          "stock": 22,
+          "quantity": 0,
+          "variantDetail": [
+            {
+              "id": "0eb519a4-9efd-44f0-ac09-9e20e82eb102",
+              "name": "Blue"
+            },
+            {
+              "id": "e2119661-0519-4542-b7cd-da4e96e18983",
+              "name": "M"
+            }
+          ],
+          "priceConverted": 160.02
+        },
+        {
+          "id": "feee0e5d-9913-4209-a1cb-12860c741665",
+          "price": 450,
+          "stock": 28,
+          "quantity": 0,
+
+          "variantDetail": [
+            {
+              "id": "9936e6c8-4fe0-409a-ba33-0a13b52e5f14",
+              "name": "Gray"
+            },
+            {
+              "id": "602ec28b-566e-4c30-a7d4-5e9cef19ed27",
+              "name": "L"
+            }
+          ],
+          "priceConverted": 120.015
+        },
+        {
+          "id": "fc443a13-6676-4f0f-98f4-174e3cb49851",
+          "price": 500,
+          "stock": 23,
+          "quantity": 0,
+          "variantDetail": [
+            {
+              "id": "6b88c62a-1bdb-4d28-a59f-c399a5f2c9b3",
+              "name": "Yellow"
+            },
+            {
+              "id": "602ec28b-566e-4c30-a7d4-5e9cef19ed27",
+              "name": "L"
+            }
+          ],
+          "priceConverted": 133.35
+        }
+      ]
+    },
+
+    {
+      "title": "Wyze Duo Cam Doorbell",
+      "image": "https://i.postimg.cc/15Jt7pCZ/0d7c4e5400ad8bef25d0ac786f415794250cefd5.png",
+      "price": 1000,
+      "stock": 3,
+      "attributes": [],
+      "variants": [],
+      "discount": null,
+      "description": "Two cameras. Two views. Double the porch protection."
+    }
+  ]
+}
