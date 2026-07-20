@@ -7,6 +7,11 @@
   - **Review Camera Section**: The dynamic rendering of chosen cameras, variants, images, quantities, and pricing in the checkout review panel (`CameraSectionReview` and `ProductBox`) was created with AI assistance.
   - **Save System For Later**: The persistence logic allowing users to save their current configuration to `localStorage` via the "Save my system later" button and restore it on app load was created with AI assistance.
 
+## Challenges & Architecture Notes
+
+- **UX Design Complexity**: The user experience and layout design are highly complex, requiring dynamic state synchronization across multi-step selections, variant pickers, and live checkout summaries.
+- **API & Validation Constraints**: Handling complex multi-product configurations (both variant and non-variant items) using a single `GET` and a single `POST`/`PUT` endpoint creates significant validation and service logic challenges for both Frontend (FE) and Backend (BE) engineers.
+
 ---
 
 # React + TypeScript + Vite Template
