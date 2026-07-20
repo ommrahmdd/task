@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ColumnWrapper from "./ColumnWrapper";
 import Review from "./Review/Review";
 import Steps from "./Steps/Steps";
+import productsData from "./../../../db.json";
 
 export interface AttributeValue {
   id: string;
@@ -101,13 +101,11 @@ const schema = z.object({
 type schemaType = z.infer<typeof schema>;
 
 export default function Layout() {
-  const [products, setProducts] = useState<Product[]>([]);
-
   const methods = useForm<schemaType>({
     resolver: zodResolver(schema),
     values: {
       products:
-        products?.map((p) => ({
+        productsData?.items?.map((p) => ({
           id: p.id,
           title: p?.title,
           image: p?.image,
@@ -133,14 +131,6 @@ export default function Layout() {
     },
   });
 
-  useEffect(() => {
-    fetch("http://localhost:4000/items")
-      .then((res) => res.json())
-      .then((data: Product[]) => {
-        setProducts(data);
-      });
-  }, []);
-
   return (
     <FormProvider {...methods}>
       <div className="mx-auto max-w-[1440px] grid grid-cols-3 my-[50px] mx-[122px] gap-[29px] font-gilory">
@@ -151,7 +141,7 @@ export default function Layout() {
         </header>
 
         <ColumnWrapper className="col-span-3 lg:col-span-2">
-          <Steps products={products} />
+          <Steps products={productsData?.items as Product[]} />
         </ColumnWrapper>
 
         <ColumnWrapper className="bg-[#EDF4FF] self-start p-[15px] rounded-[15px] col-span-3 lg:col-span-1">

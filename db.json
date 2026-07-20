@@ -1,6 +1,7 @@
 {
   "items": [
     {
+      "id": "1",
       "title": "Wyze Cam v4",
       "price": null,
       "stock": null,
@@ -114,6 +115,7 @@
       ]
     },
     {
+      "id": "2",
       "title": "Wyze Cam Pan v3",
       "price": null,
       "stock": null,
@@ -167,6 +169,7 @@
       ]
     },
     {
+      "id": "3",
       "title": "Wyze Cam Floodlight v2",
       "price": null,
       "stock": null,
@@ -280,6 +283,7 @@
       ]
     },
     {
+      "id": "4",
       "title": "Wyze Battery Cam Pro",
       "price": null,
       "stock": null,
@@ -333,6 +337,7 @@
       ]
     },
     {
+      "id": "5",
       "title": "Wyze Duo Cam Doorbell",
       "image": "https://i.postimg.cc/15Jt7pCZ/0d7c4e5400ad8bef25d0ac786f415794250cefd5.png",
       "price": 89.88,
