@@ -135,7 +135,7 @@ export default function Layout() {
   useEffect(() => {
     fetch("http://localhost:4000/items")
       .then((res) => res.json())
-      .then((data: any[]) => {
+      .then((data: Product[]) => {
         setProducts(data);
       });
   }, []);

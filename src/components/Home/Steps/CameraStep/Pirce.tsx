@@ -9,7 +9,7 @@ export default function Price({
   stock?: number;
   quantity: number;
 }) {
-  const totalPrice = !!quantity ? price * quantity : price;
+  const totalPrice = quantity ? price * quantity : price;
   const isFullyDiscounted = discount === 100;
 
   // Calculate final price based on discount

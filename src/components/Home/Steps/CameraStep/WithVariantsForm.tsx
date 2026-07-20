@@ -38,7 +38,7 @@ export default function WithVariantsForm({
     name: "products",
   });
 
-  const productIndex = products.findIndex((p: any) => p.id === productId);
+  const productIndex = products.findIndex((p: { id: string }) => p.id === productId);
   const currentProduct = products[productIndex];
 
   const setAttributeValue = (attributeName: string, valueId: string) => {
@@ -65,7 +65,7 @@ export default function WithVariantsForm({
     }
 
     const allowedAttributeNames = currentProduct.attributes.map(
-      (attr: any) => attr.name,
+      (attr: { name: string }) => attr.name,
     );
 
     const selectedValueIds = allowedAttributeNames
@@ -83,8 +83,7 @@ export default function WithVariantsForm({
       );
     });
   }, [
-    currentProduct?.selectedAttributes,
-    currentProduct?.attributes,
+    currentProduct,
     variants,
   ]);
 
@@ -100,7 +99,7 @@ export default function WithVariantsForm({
     <div className="space-y-6 flex-1 flex flex-col justify-between">
       {/* ---------------------------------------------- Variants */}
       <div className="space-y-4 max-h-[200px] overflow-auto">
-        {currentProduct?.attributes?.map((field: any) => {
+        {currentProduct?.attributes?.map((field: { name: string; type: string; values: { id: string; name: string; image?: string | null }[] }) => {
           const selectedValueId =
             currentProduct?.selectedAttributes?.[field.name];
 
@@ -111,7 +110,7 @@ export default function WithVariantsForm({
               </p>
 
               <div className="flex items-center flex-wrap gap-2">
-                {field.values?.map((v: any) => {
+                {field.values?.map((v: { id: string; name: string; image?: string | null }) => {
                   const isSelected = selectedValueId === v.id;
 
                   return (

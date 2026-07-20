@@ -18,7 +18,7 @@ export default function CamerasStep({ products }: { products: Product[] }) {
               id: p.id,
             }}
           >
-            {!!p?.attributes?.length ? (
+            {p?.attributes?.length ? (
               <WithVariantsForm productId={p.id} variants={p.variants || []} />
             ) : (
               <WithoutVariantsForm

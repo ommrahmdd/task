@@ -21,7 +21,7 @@ export default function WithoutVariantsForm({
       control: methods.control,
     }) || [];
 
-  const productIndex = products.findIndex((p: any) => p.id === productId);
+  const productIndex = products.findIndex((p: { id: string }) => p.id === productId);
   const currentProduct = products[productIndex];
 
   const quantity = currentProduct?.quantity || 0;

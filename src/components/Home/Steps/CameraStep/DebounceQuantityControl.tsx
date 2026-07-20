@@ -6,12 +6,10 @@ export default function DebounceQuantityControl({
   name,
   initialValue,
   disabled,
-  variant = "main",
 }: {
   name: string;
   initialValue: number;
   disabled?: boolean;
-  variant?: "main" | "secondary";
 }) {
   const methods = useFormContext();
 

@@ -37,7 +37,9 @@ export default function ProductBox({
   // 2. The original price is just the base price before any discount
   const originalPrice = discount ? unitPrice * quantity : null;
 
-  const variantStr = variantDetail?.map((d: any) => d.name).join(" - ");
+  const variantStr = variantDetail
+    ?.map((d: { id: string; name: string }) => d.name)
+    .join(" - ");
 
   return (
     <div className="flex items-center justify-between gap-3">
@@ -68,7 +70,6 @@ export default function ProductBox({
         <DebounceQuantityControl
           name={quantityName}
           initialValue={0}
-          variant="secondary"
         />
 
         {/* Right section: Price details */}

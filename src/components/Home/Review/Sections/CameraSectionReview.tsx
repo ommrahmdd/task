@@ -2,15 +2,64 @@ import { useFormContext, useWatch } from "react-hook-form";
 import ProductBox from "../ProductBox";
 import EmptyState from "@/assets/icons/EmptyState";
 
-const getVariantImage = (product: any, variant: any) => {
-  const colorAttr = product.attributes?.find((a: any) => a.type === "COLOR");
+interface AttributeVal {
+  id: string;
+  name: string;
+  image?: string | null;
+}
+
+interface AttributeItem {
+  name: string;
+  type: string;
+  values?: AttributeVal[];
+}
+
+interface VariantDetailItem {
+  id: string;
+  name: string;
+}
+
+interface VariantItem {
+  id: string;
+  price: number;
+  stock: number;
+  variantDetail?: VariantDetailItem[];
+  priceConverted: number;
+}
+
+interface ProductItem {
+  id: string;
+  title: string;
+  image: string;
+  price?: number | null;
+  stock?: number | null;
+  discount?: number | null;
+  quantity?: number | null;
+  attributes?: AttributeItem[] | null;
+  variants?: VariantItem[] | null;
+  selectedVariantsQuantity?: Record<string, number> | null;
+}
+
+interface SelectedItem {
+  key: string;
+  title: string;
+  variantDetail: VariantDetailItem[] | null;
+  image: string;
+  quantityName: string;
+  unitPrice: number;
+  discount?: number | null;
+  stock: number;
+}
+
+const getVariantImage = (product: ProductItem, variant: VariantItem) => {
+  const colorAttr = product.attributes?.find((a) => a.type === "COLOR");
   if (colorAttr) {
-    const colorValueDetail = variant.variantDetail?.find((d: any) =>
-      colorAttr.values?.some((v: any) => v.id === d.id),
+    const colorValueDetail = variant.variantDetail?.find((d) =>
+      colorAttr.values?.some((v) => v.id === d.id),
     );
     if (colorValueDetail) {
       const colorVal = colorAttr.values?.find(
-        (v: any) => v.id === colorValueDetail.id,
+        (v) => v.id === colorValueDetail.id,
       );
       if (colorVal?.image) return colorVal.image;
     }
@@ -20,15 +69,15 @@ const getVariantImage = (product: any, variant: any) => {
 
 export default function CameraSectionReview() {
   const methods = useFormContext();
-  const watchProducts =
+  const watchProducts: ProductItem[] =
     useWatch({
       name: "products",
       control: methods?.control,
     }) || [];
 
-  const selectedItems: any[] = [];
+  const selectedItems: SelectedItem[] = [];
 
-  watchProducts.forEach((product: any, productIndex: number) => {
+  watchProducts.forEach((product: ProductItem, productIndex: number) => {
     if (product.attributes && product.attributes.length > 0) {
       const selectedVariantsQuantity = product.selectedVariantsQuantity || {};
       const variants = product.variants || [];
@@ -36,13 +85,13 @@ export default function CameraSectionReview() {
       Object.entries(selectedVariantsQuantity).forEach(([variantId, qty]) => {
         const quantity = qty as number;
         if (quantity > 0) {
-          const variant = variants.find((v: any) => v.id === variantId);
+          const variant = variants.find((v) => v.id === variantId);
           if (variant) {
             const image = getVariantImage(product, variant);
             selectedItems.push({
               key: `${product.id}-${variantId}`,
               title: product.title,
-              variantDetail: variant.variantDetail,
+              variantDetail: variant.variantDetail || null,
               image,
               quantityName: `products.[${productIndex}].selectedVariantsQuantity.${variantId}`,
               unitPrice: variant.priceConverted || 0,
@@ -84,7 +133,7 @@ export default function CameraSectionReview() {
             image={item.image}
             quantityName={item.quantityName}
             unitPrice={item.unitPrice}
-            discount={item.discount}
+            discount={item.discount || null}
             stock={item.stock}
           />
         ))}
@@ -92,3 +141,4 @@ export default function CameraSectionReview() {
     </div>
   );
 }
+
