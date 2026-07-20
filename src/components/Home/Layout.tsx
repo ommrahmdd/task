@@ -49,6 +49,8 @@ const productItemSchema = z
   .object({
     id: z.string(),
     title: z.string(),
+    image: z.string().nullable().optional(),
+    variants: z.array(z.any()).optional().nullable(),
     price: z.number().nullable().optional(),
     stock: z.number().nullable().optional(),
     discount: z.number().nullable().optional(),
@@ -107,6 +109,8 @@ export default function Layout() {
         products?.map((p) => ({
           id: p.id,
           title: p?.title,
+          image: p?.image,
+          variants: p?.variants || [],
           attributes: p.attributes || [],
           selectedAttributes: p.attributes?.length
             ? p.attributes.reduce<Record<string, string>>((acc, a) => {
