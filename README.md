@@ -1,4 +1,15 @@
-# React + TypeScript + Vite
+# Security System Selection Task
+
+## Project Information & Development Notes
+
+- **Form & Validation (Human Developer)**: Built previously in the latest sprint in the developer's current project for their company (including the core form implementation to select multiple variants as well as products without variants, along with all associated Zod form validations).
+- **AI Contributions**:
+  - **Review Camera Section**: The dynamic rendering of chosen cameras, variants, images, quantities, and pricing in the checkout review panel (`CameraSectionReview` and `ProductBox`) was created with AI assistance.
+  - **Save System For Later**: The persistence logic allowing users to save their current configuration to `localStorage` via the "Save my system later" button and restore it on app load was created with AI assistance.
+
+---
+
+# React + TypeScript + Vite Template
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
