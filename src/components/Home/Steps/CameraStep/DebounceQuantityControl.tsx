@@ -1,14 +1,17 @@
 import { Button } from "@/components/ui/button";
+import classNames from "classnames";
 import { useFormContext, useWatch } from "react-hook-form";
 
 export default function DebounceQuantityControl({
   name,
   initialValue,
   disabled,
+  variant = "main",
 }: {
   name: string;
   initialValue: number;
   disabled?: boolean;
+  variant?: "main" | "secondary";
 }) {
   const methods = useFormContext();
 
@@ -59,10 +62,12 @@ const ButtonController = ({
   handler,
   disabled,
   content,
+  variant = "main",
 }: {
   handler: () => void;
   disabled?: boolean;
   content: string;
+  variant?: "main" | "secondary";
 }) => (
   <Button
     type="button"
@@ -70,7 +75,11 @@ const ButtonController = ({
     onClick={handler}
     disabled={disabled}
     size="sm"
-    className="bg-[#F0F4F7] border-none text-[#525963] text-sm"
+    className={classNames(
+      "border-none  text-sm cursor-pointer",
+      variant === "main" && "bg-[#F0F4F7] text-[#525963]",
+      variant === "secondary" && "text-[#575757] bg-white",
+    )}
   >
     {content}
   </Button>

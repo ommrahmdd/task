@@ -1,6 +1,6 @@
-export default function Pirce({
+export default function Price({
   price,
-  discount,
+  discount = 0,
   stock,
   quantity,
 }: {
@@ -9,19 +9,27 @@ export default function Pirce({
   stock?: number;
   quantity: number;
 }) {
+  const totalPrice = price * quantity;
+  const isFullyDiscounted = discount === 100;
+
+  // Calculate final price based on discount
+  const finalPrice = isFullyDiscounted ? 0 : totalPrice * (1 - discount / 100);
+
   return (
     <div className="flex flex-col text-right">
-      {!!discount && (
+      {discount > 0 && (
         <span className="text-base font-normal text-[#D8392B] line-through">
-          ${(price * quantity).toFixed(2)}
+          ${totalPrice.toFixed(2)}
         </span>
       )}
 
       <span className="text-base font-normal text-[#575757]">
-        ${(price * quantity * (1 - (discount || 0) / 100)).toFixed(2)}
+        {finalPrice <= 0 ? "FREE" : `$${finalPrice.toFixed(2)}`}
       </span>
 
-      <span className="text-xs text-slate-400">({stock} items left)</span>
+      {stock !== undefined && (
+        <span className="text-xs text-slate-400">({stock} items left)</span>
+      )}
     </div>
   );
 }

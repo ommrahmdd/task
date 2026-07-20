@@ -20,13 +20,22 @@ export default function ProductBox({
   discount,
 }: ProductBoxProps) {
   const methods = useFormContext();
-  const quantity = useWatch({
-    name: quantityName,
-    control: methods.control,
-  }) || 0;
+  const quantity =
+    useWatch({
+      name: quantityName,
+      control: methods.control,
+    }) || 0;
 
-  const currentPrice = unitPrice * quantity;
-  const originalPrice = discount ? currentPrice / (1 - discount / 100) : null;
+  // 1. Calculate the true current price after applying the discount
+  const isFullyDiscounted = discount === 100;
+  const currentPrice = isFullyDiscounted
+    ? 0
+    : discount
+      ? unitPrice * quantity * (1 - discount / 100)
+      : unitPrice * quantity;
+
+  // 2. The original price is just the base price before any discount
+  const originalPrice = discount ? unitPrice * quantity : null;
 
   const variantStr = variantDetail?.map((d: any) => d.name).join(" - ");
 
@@ -34,12 +43,16 @@ export default function ProductBox({
     <div className="flex items-center justify-between gap-3">
       {/* Left section: Image and Title details */}
       <div className="flex items-center gap-3 flex-1 min-w-0">
-        <div className="w-[50px] h-[50px] bg-white border border-slate-100 rounded-lg flex items-center justify-center p-[5px] flex-shrink-0">
-          <img src={image} alt={title} className="max-w-full max-h-full object-contain" />
+        <div className="w-[41px] h-[41px] bg-white border border-slate-100 rounded-lg flex items-center justify-center p-[5px] flex-shrink-0">
+          <img
+            src={image}
+            alt={title}
+            className="max-w-full max-h-full object-contain"
+          />
         </div>
 
         <div className="min-w-0 flex flex-col">
-          <p className="font-semibold text-base text-[#1F1F1F] truncate leading-tight">
+          <p className="font-semibold text-base text-[#1F1F1F] leading-tight">
             {title}
           </p>
           {variantStr && (
@@ -52,7 +65,11 @@ export default function ProductBox({
 
       {/* Middle section: Quantity control */}
       <div className="flex-shrink-0">
-        <DebounceQuantityControl name={quantityName} initialValue={0} />
+        <DebounceQuantityControl
+          name={quantityName}
+          initialValue={0}
+          variant="secondary"
+        />
       </div>
 
       {/* Right section: Price details */}
@@ -63,7 +80,7 @@ export default function ProductBox({
           </span>
         )}
         <span className="text-base font-semibold text-[#4E2FD2] leading-none">
-          ${currentPrice.toFixed(2)}
+          ${currentPrice <= 0 ? "FREE" : currentPrice.toFixed(2)}
         </span>
       </div>
     </div>

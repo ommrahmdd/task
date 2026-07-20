@@ -48,15 +48,6 @@ export default function WithoutVariantsForm({
               stock={stock}
             />
           ) : (
-            // <div className="flex flex-col gap-y-1 text-right">
-            //   <span className="text-base font-normal text-[#575757]">
-            //     ${(finalPrice * quantity).toFixed(2)}
-            //   </span>
-
-            //   <span className="text-xs text-slate-400">
-            //     ({stock} items left)
-            //   </span>
-            // </div>
             <span className="text-base font-normal text-[#575757]">
               $ 00.00
             </span>

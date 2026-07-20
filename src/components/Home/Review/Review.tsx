@@ -1,4 +1,11 @@
-import CameraSectionReview from "./CameraSectionReview";
+import CameraSectionReview from "./Sections/CameraSectionReview";
+import ReviewActions from "./Sections/ReviewActions";
+import ReviewSection from "./ReviewSectionLayout";
+import TotalSection from "./Sections/TotalSection";
+import PlanSection from "./Sections/PlanSection";
+import SensorSection from "./Sections/SensorSection";
+import AccessoriesSection from "./Sections/AccessoriesSection";
+import ShippingSection from "./Sections/ShippingSection";
 
 export default function Review() {
   return (
@@ -17,9 +24,33 @@ export default function Review() {
           matters most safe.
         </p>
 
-        <hr className="my-[10px] text-[#CED6DE]" />
+        <ReviewSection title="Cameras">
+          <CameraSectionReview />
+        </ReviewSection>
 
-        <CameraSectionReview />
+        <ReviewSection title="Sensors">
+          <SensorSection />
+        </ReviewSection>
+
+        <ReviewSection title="accessories">
+          <AccessoriesSection />
+        </ReviewSection>
+
+        <ReviewSection title="plan">
+          <PlanSection />
+        </ReviewSection>
+
+        <ReviewSection title="">
+          <ShippingSection />
+        </ReviewSection>
+
+        <div className="my-[13px]">
+          <TotalSection />
+        </div>
+
+        <div className="mb-2">
+          <ReviewActions />
+        </div>
       </div>
     </div>
   );

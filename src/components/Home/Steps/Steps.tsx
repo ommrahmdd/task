@@ -14,7 +14,7 @@ import SensorIcon from "@/assets/icons/SensorIcon";
 import ExtraProtectionIcon from "@/assets/icons/ExtraProtectionIcon";
 import type { Product } from "../Layout";
 import { useCameraInfo } from "@/hooks/useCameraInfo";
-import { Badge } from "@/components/ui/badge";
+import Lorem from "./Lorem";
 
 export default function Steps({ products }: { products: Product[] }) {
   const steps = [
@@ -28,21 +28,21 @@ export default function Steps({ products }: { products: Product[] }) {
     {
       title: "Choose your plan",
       titleIcon: <ProtectionIcon />,
-      children: <CamerasStep products={products} />,
+      children: <Lorem />,
       actions: "2 Selected",
       value: 2,
     },
     {
       title: "Choose your sensors",
       titleIcon: <SensorIcon />,
-      children: <CamerasStep products={products} />,
+      children: <Lorem />,
       actions: "2 Selected",
       value: 3,
     },
     {
       title: "Add extra protection",
       titleIcon: <ExtraProtectionIcon />,
-      children: <CamerasStep products={products} />,
+      children: <Lorem />,
       actions: "2 Selected",
       value: 4,
     },

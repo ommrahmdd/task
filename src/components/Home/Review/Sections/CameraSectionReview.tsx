@@ -1,5 +1,6 @@
 import { useFormContext, useWatch } from "react-hook-form";
-import ProductBox from "./ProductBox";
+import ProductBox from "../ProductBox";
+import EmptyState from "@/assets/icons/EmptyState";
 
 const getVariantImage = (product: any, variant: any) => {
   const colorAttr = product.attributes?.find((a: any) => a.type === "COLOR");
@@ -26,8 +27,6 @@ export default function CameraSectionReview() {
     }) || [];
 
   const selectedItems: any[] = [];
-
-  console.log("dddd", watchProducts);
 
   watchProducts.forEach((product: any, productIndex: number) => {
     if (product.attributes && product.attributes.length > 0) {
@@ -71,15 +70,11 @@ export default function CameraSectionReview() {
   });
 
   if (selectedItems.length === 0) {
-    return null;
+    return <EmptyState />;
   }
 
   return (
-    <div className="space-y-4 mb-[25px]">
-      <p className="font-semibold text-xs text-[#525963] uppercase tracking-[1.6px] mb-[15px]">
-        Cameras
-      </p>
-
+    <div>
       <div className="space-y-[15px]">
         {selectedItems.map((item) => (
           <ProductBox
@@ -94,8 +89,6 @@ export default function CameraSectionReview() {
           />
         ))}
       </div>
-
-      <hr className="my-[10px] text-[#CED6DE]" />
     </div>
   );
 }
