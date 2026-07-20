@@ -16,6 +16,7 @@ import type { Product } from "../Layout";
 import { useCameraInfo } from "@/hooks/useCameraInfo";
 import Lorem from "./Lorem";
 import { Button } from "@/components/ui/button";
+import { ArrowDown2, ArrowUp2 } from "iconsax-reactjs";
 
 export default function Steps({ products }: { products: Product[] }) {
   const steps = [
@@ -66,7 +67,7 @@ export default function Steps({ products }: { products: Product[] }) {
           value={activeItem}
           onValueChange={setActiveItem}
         >
-          <p className="text-sm font-medium my-[5px] mx-[15px] text-[#484848]">
+          <p className="text-sm font-medium my-[5px] mx-[15px] text-[#484848] uppercase tracking-[1.6px]">
             Step {idx + 1} of {steps?.length}
           </p>
 
@@ -77,18 +78,25 @@ export default function Steps({ products }: { products: Product[] }) {
               activeItem?.[0] !== step.value && "border-b-[.5px]",
             )}
           >
-            <AccordionTrigger className="mx-[15px] flex items-center justify-between gap-x-4 py-[22.5px] ">
+            <AccordionTrigger className="mx-[15px] flex items-center justify-between gap-x-4 py-[22.5px]">
               <div className="flex items-center gap-2">
                 {step?.titleIcon}
 
                 <h4 className="font-semibold text-[22px]">{step?.title}</h4>
               </div>
+              <div className="flex items-center gap-x-1">
+                {step?.value === 1 && (
+                  <p className="text-[#4E2FD2] font-medium text-sm">
+                    {selectedProducts?.length} selected
+                  </p>
+                )}
 
-              {step?.value === 1 && (
-                <p className="text-[#4E2FD2] font-medium text-sm">
-                  {selectedProducts?.length} selected
-                </p>
-              )}
+                {activeItem?.[0] === step?.value ? (
+                  <ArrowUp2 size="20" color="#4E2FD2" variant="Bold" />
+                ) : (
+                  <ArrowDown2 size="20" color="#4E2FD2" variant="Bold" />
+                )}
+              </div>
             </AccordionTrigger>
 
             <AccordionContent className="mx-[15px]">
@@ -104,6 +112,7 @@ export default function Steps({ products }: { products: Product[] }) {
                     Prev: {steps[idx - 1]?.title}
                   </Button>
                 )}
+
                 {step?.value !== 4 && (
                   <Button
                     variant="outline"

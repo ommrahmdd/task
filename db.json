@@ -5,7 +5,7 @@
       "title": "Wyze Cam v4",
       "price": null,
       "stock": null,
-      "quantity": 1,
+      "quantity": 0,
       "discount": 22,
       "image": "https://i.postimg.cc/66Pnbxyt/7377c4c026acb3c476e41ccec1e0376490ee2cb9.png",
       "description": "The clearest Wyze Cam ever made.",
@@ -48,7 +48,7 @@
           "id": "1f2604c3-1fc0-4534-b3f4-fdda245a3a61",
           "price": 35.98,
           "stock": 100,
-          "quantity": 1,
+          "quantity": 0,
           "variantDetail": [
             {
               "id": "5d03e268-015f-42d2-8493-64e1d94f6abf",
@@ -119,7 +119,7 @@
       "title": "Wyze Cam Pan v3",
       "price": null,
       "stock": null,
-      "quantity": 2,
+      "quantity": 0,
       "image": "https://i.postimg.cc/k4zNb0SS/6e1650a4902c8e51d612c6363434bb36c8d74688.png",
       "discount": 12,
       "description": "360° pan and 180° tilt security camera.",
@@ -146,7 +146,7 @@
           "id": "f88b8d0a-abdb-4b13-aa50-2e3af3bce7df",
           "price": 25,
           "stock": 30,
-          "quantity": 2,
+          "quantity": 0,
           "variantDetail": [
             {
               "id": "9936e6c8-4fe0-409a-ba33-0a13b52e5f14",

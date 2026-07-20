@@ -57,3 +57,7 @@
 @theme {
   --font-gilory: "Gilroy", system-ui, sans-serif;
 }
+
+[data-slot="accordion-trigger"] [data-slot="accordion-trigger-icon"] {
+  display: none !important;
+}
