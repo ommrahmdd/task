@@ -9,11 +9,13 @@ export default function Price({
   stock?: number;
   quantity: number;
 }) {
-  const totalPrice = price * quantity;
+  const totalPrice = !!quantity ? price * quantity : price;
   const isFullyDiscounted = discount === 100;
 
   // Calculate final price based on discount
   const finalPrice = isFullyDiscounted ? 0 : totalPrice * (1 - discount / 100);
+
+  console.log("xxxx", finalPrice, totalPrice);
 
   return (
     <div className="flex flex-col text-right">

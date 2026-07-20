@@ -15,6 +15,7 @@ import ExtraProtectionIcon from "@/assets/icons/ExtraProtectionIcon";
 import type { Product } from "../Layout";
 import { useCameraInfo } from "@/hooks/useCameraInfo";
 import Lorem from "./Lorem";
+import { Button } from "@/components/ui/button";
 
 export default function Steps({ products }: { products: Product[] }) {
   const steps = [
@@ -92,6 +93,27 @@ export default function Steps({ products }: { products: Product[] }) {
 
             <AccordionContent className="mx-[15px]">
               {step?.children}
+
+              <div className="flex items-center justify-center gap-x-3 mt-4">
+                {step?.value !== 1 && (
+                  <Button
+                    variant="outline"
+                    className="border-[#4E2FD2] text-[#4E2FD2] text-[18px] py-3 px-6 font-semibold border-2"
+                    onClick={() => setActiveItem([step?.value - 1])}
+                  >
+                    Prev: {steps[idx - 1]?.title}
+                  </Button>
+                )}
+                {step?.value !== 4 && (
+                  <Button
+                    variant="outline"
+                    className="border-[#4E2FD2] text-[#4E2FD2] text-[18px] py-3 px-6 font-semibold border-2"
+                    onClick={() => setActiveItem([step?.value + 1])}
+                  >
+                    Next: {steps[idx + 1]?.title}
+                  </Button>
+                )}
+              </div>
             </AccordionContent>
           </AccordionItem>
         </Accordion>

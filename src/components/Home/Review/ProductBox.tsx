@@ -52,9 +52,10 @@ export default function ProductBox({
         </div>
 
         <div className="min-w-0 flex flex-col">
-          <p className="font-semibold text-base text-[#1F1F1F] leading-tight">
+          <p className="font-semibold text-sm text-[#1F1F1F] leading-tight md:text-base">
             {title}
           </p>
+
           {variantStr && (
             <p className="text-xs text-slate-500 font-medium mt-1 truncate leading-tight">
               {variantStr}
@@ -63,25 +64,24 @@ export default function ProductBox({
         </div>
       </div>
 
-      {/* Middle section: Quantity control */}
-      <div className="flex-shrink-0">
+      <div className="flex items-center gap-x-2">
         <DebounceQuantityControl
           name={quantityName}
           initialValue={0}
           variant="secondary"
         />
-      </div>
 
-      {/* Right section: Price details */}
-      <div className="flex flex-col items-end flex-shrink-0 min-w-[75px]">
-        {originalPrice && originalPrice > 0 && (
-          <span className="text-xs text-slate-400 line-through leading-tight mb-0.5">
-            ${originalPrice.toFixed(2)}
+        {/* Right section: Price details */}
+        <div className="flex flex-col items-end ">
+          {originalPrice && originalPrice > 0 && (
+            <span className="text-xs text-slate-400 line-through leading-tight mb-0.5">
+              ${originalPrice.toFixed(2)}
+            </span>
+          )}
+          <span className="text-base font-semibold text-[#4E2FD2] leading-none">
+            ${currentPrice <= 0 ? "FREE" : currentPrice.toFixed(2)}
           </span>
-        )}
-        <span className="text-base font-semibold text-[#4E2FD2] leading-none">
-          ${currentPrice <= 0 ? "FREE" : currentPrice.toFixed(2)}
-        </span>
+        </div>
       </div>
     </div>
   );

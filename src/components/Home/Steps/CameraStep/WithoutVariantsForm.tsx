@@ -40,18 +40,12 @@ export default function WithoutVariantsForm({
         </div>
 
         <div>
-          {quantity > 0 ? (
-            <Pirce
-              price={finalPrice}
-              quantity={quantity}
-              discount={currentProduct?.discount}
-              stock={stock}
-            />
-          ) : (
-            <span className="text-base font-normal text-[#575757]">
-              $ 00.00
-            </span>
-          )}
+          <Pirce
+            price={finalPrice}
+            quantity={quantity}
+            discount={currentProduct?.discount}
+            stock={stock}
+          />
         </div>
       </div>
     </div>

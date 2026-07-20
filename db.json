@@ -45,7 +45,7 @@
       "variants": [
         {
           "id": "1f2604c3-1fc0-4534-b3f4-fdda245a3a61",
-          "price": 3598,
+          "price": 35.98,
           "stock": 100,
           "quantity": 1,
           "variantDetail": [
@@ -62,7 +62,7 @@
         },
         {
           "id": "dbb6bed3-5d8e-431f-b03c-7225598a7966",
-          "price": 4598,
+          "price": 45.98,
           "stock": 50,
           "quantity": 0,
           "variantDetail": [
@@ -79,7 +79,7 @@
         },
         {
           "id": "3be499d9-63f9-4346-86f2-ec4d3a15685e",
-          "price": 3598,
+          "price": 41.5,
           "stock": 45,
           "quantity": 0,
           "variantDetail": [
@@ -96,7 +96,7 @@
         },
         {
           "id": "4b78144c-71ac-4dd3-8156-3706fde72c55",
-          "price": 4598,
+          "price": 43.8,
           "stock": 32,
           "quantity": 0,
           "variantDetail": [
@@ -142,7 +142,7 @@
       "variants": [
         {
           "id": "f88b8d0a-abdb-4b13-aa50-2e3af3bce7df",
-          "price": 3998,
+          "price": 25,
           "stock": 30,
           "quantity": 2,
           "variantDetail": [
@@ -150,12 +150,11 @@
               "id": "9936e6c8-4fe0-409a-ba33-0a13b52e5f14",
               "name": "White"
             }
-          ],
-          "priceConverted": 34.98
+          ]
         },
         {
           "id": "8d9ae082-cb8d-4d18-b8be-53614d8eead1",
-          "price": 3998,
+          "price": 29.3,
           "stock": 26,
           "quantity": 0,
           "variantDetail": [
@@ -163,8 +162,7 @@
               "id": "6b88c62a-1bdb-4d28-a59f-c399a5f2c9b3",
               "name": "Black"
             }
-          ],
-          "priceConverted": 34.98
+          ]
         }
       ]
     },
@@ -213,7 +211,7 @@
       "variants": [
         {
           "id": "e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b",
-          "price": 8998,
+          "price": 42.6,
           "stock": 14,
           "quantity": 0,
           "variantDetail": [
@@ -231,7 +229,7 @@
         {
           "id": "f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c",
           "price": 16998,
-          "stock": 25,
+          "stock": 45,
           "quantity": 0,
           "variantDetail": [
             {
@@ -247,7 +245,7 @@
         },
         {
           "id": "g7b8c9d0-e1f2-3a4b-5c6d-7e8f9a0b1c2d",
-          "price": 8998,
+          "price": 20,
           "stock": 20,
           "quantity": 0,
           "variantDetail": [
@@ -265,7 +263,7 @@
         {
           "id": "h8c9d0e1-f2a3-4b5c-6d7e-8f9a0b1c2d3e",
           "price": 16998,
-          "stock": 15,
+          "stock": 66,
           "quantity": 0,
           "variantDetail": [
             {
@@ -310,7 +308,7 @@
       "variants": [
         {
           "id": "ca5544dd-1234-5678-90ab-cdef12345678",
-          "price": 8998,
+          "price": 37.6,
           "stock": 42,
           "quantity": 0,
           "variantDetail": [
@@ -318,12 +316,11 @@
               "id": "fa1177ba-1d90-4889-acb1-88f62c019a3b",
               "name": "White"
             }
-          ],
-          "priceConverted": 89.98
+          ]
         },
         {
           "id": "da6655ee-5678-90ab-cdef-1234567890ab",
-          "price": 8998,
+          "price": 32.5,
           "stock": 19,
           "quantity": 0,
           "variantDetail": [
@@ -331,15 +328,14 @@
               "id": "da2266cb-2e01-4990-bdc2-99a73d129b4c",
               "name": "Black"
             }
-          ],
-          "priceConverted": 89.98
+          ]
         }
       ]
     },
     {
       "title": "Wyze Duo Cam Doorbell",
       "image": "https://i.postimg.cc/15Jt7pCZ/0d7c4e5400ad8bef25d0ac786f415794250cefd5.png",
-      "price": 6998,
+      "price": 89.88,
       "stock": 8,
       "quantity": 0,
       "attributes": [],
