@@ -100,35 +100,82 @@ const schema = z.object({
 
 type schemaType = z.infer<typeof schema>;
 
+export const STORAGE_KEY = "saved_security_system";
+
+export function getInitialFormValues() {
+  const defaultProducts =
+    productsData?.items?.map((p) => ({
+      id: p.id,
+      title: p?.title,
+      image: p?.image,
+      variants: p?.variants || [],
+      attributes: p.attributes || [],
+      selectedAttributes: p.attributes?.length
+        ? p.attributes.reduce<Record<string, string>>((acc, a) => {
+            acc[a.name] = "";
+            return acc;
+          }, {})
+        : {},
+      selectedVariantId: null,
+      price: p.price,
+      quantity: 0,
+      stock: p.stock,
+      discount: p.discount,
+      selectedVariantsQuantity:
+        p.variants?.reduce<Record<string, number>>((acc, curr) => {
+          acc[curr.id] = curr.quantity || 0;
+          return acc;
+        }, {}) || {},
+    })) || [];
+
+  if (typeof window === "undefined") {
+    return { products: defaultProducts };
+  }
+
+  try {
+    const savedRaw = localStorage.getItem(STORAGE_KEY);
+    if (savedRaw) {
+      const savedData = JSON.parse(savedRaw);
+      if (savedData && Array.isArray(savedData.products)) {
+        return {
+          products: defaultProducts.map((defProduct) => {
+            const savedProduct = savedData.products.find(
+              (sp: { id?: string; title?: string }) =>
+                sp.id === defProduct.id || sp.title === defProduct.title,
+            );
+            if (!savedProduct) return defProduct;
+
+            return {
+              ...defProduct,
+              selectedAttributes: {
+                ...defProduct.selectedAttributes,
+                ...(savedProduct.selectedAttributes || {}),
+              },
+              selectedVariantsQuantity: {
+                ...defProduct.selectedVariantsQuantity,
+                ...(savedProduct.selectedVariantsQuantity || {}),
+              },
+              quantity:
+                typeof savedProduct.quantity === "number"
+                  ? savedProduct.quantity
+                  : defProduct.quantity,
+              selectedVariantId: savedProduct.selectedVariantId || null,
+            };
+          }),
+        };
+      }
+    }
+  } catch (err) {
+    console.error("Failed to load saved system data", err);
+  }
+
+  return { products: defaultProducts };
+}
+
 export default function Layout() {
   const methods = useForm<schemaType>({
     resolver: zodResolver(schema),
-    values: {
-      products:
-        productsData?.items?.map((p) => ({
-          id: p.id,
-          title: p?.title,
-          image: p?.image,
-          variants: p?.variants || [],
-          attributes: p.attributes || [],
-          selectedAttributes: p.attributes?.length
-            ? p.attributes.reduce<Record<string, string>>((acc, a) => {
-                acc[a.name] = "";
-                return acc;
-              }, {})
-            : {},
-          selectedVariantId: null,
-          price: p.price,
-          quantity: 0,
-          stock: p.stock,
-          discount: p.discount,
-          selectedVariantsQuantity:
-            p.variants?.reduce<Record<string, number>>((acc, curr) => {
-              acc[curr.id] = curr.quantity || 0;
-              return acc;
-            }, {}) || {},
-        })) || [],
-    },
+    values: getInitialFormValues(),
   });
 
   return (
