@@ -43,6 +43,7 @@ export interface Product {
   description: string;
   attributes?: Attribute[] | null;
   variants?: Variant[] | null;
+  selectedVariantsQuantity?: Record<string, number> | null;
 }
 
 const productItemSchema = z
