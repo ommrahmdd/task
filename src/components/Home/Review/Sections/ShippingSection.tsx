@@ -1,5 +1,4 @@
 import CarbonDeliveryIcon from "@/assets/icons/CarbonDeliveryIcon";
-import React from "react";
 
 export default function ShippingSection() {
   const title = "Fast Shipping";

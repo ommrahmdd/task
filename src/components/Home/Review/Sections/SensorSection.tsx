@@ -1,4 +1,3 @@
-import React from "react";
 import ProductBox from "../ProductBox";
 
 export default function SensorSection() {
